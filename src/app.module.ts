@@ -10,13 +10,18 @@ import { CommonModule } from './common/common.module';
 
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST,
-      port: +process.env.DB_PORT,
-      database: process.env.DB_NAME,
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,      
-      autoLoadEntities: true,
-      synchronize: true,
+      host: 'ep-mute-cake-a8m2ih89-pooler.eastus2.azure.neon.tech',
+      port: 5432,
+      username: 'neondb_owner',
+      password: 'npg_Mm6wRPV9ngls',
+      database: 'neondb',
+      ssl: {
+        rejectUnauthorized: false, // Accept self-signed certificates (use with caution)
+      },
+      extra: {
+        sslmode: 'require',
+      },
+      // other config...
     }),
 
     ProductsModule,
